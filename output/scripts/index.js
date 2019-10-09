@@ -48,6 +48,7 @@ function _arrayWithHoles(arr) {
 }
 
 // Reseteo del estilo de los textos (para que aquellos corregidos se visualicen)
+
 var styleReset = function styleReset() {
   for (i = 0; i < document.adoption.length - 1; i++) {
     if (i === 4) {
@@ -63,6 +64,7 @@ var styleReset = function styleReset() {
 var alertMessage = ""; // Inicialización del string contenedor de los mensajes de alerta
 
 var errorsArray = []; // Inicialización del array contenedor los input con errores
+
 // Manejador de los estilos para campos con errores
 
 var errorStyling = function errorStyling(inputName) {
@@ -70,19 +72,23 @@ var errorStyling = function errorStyling(inputName) {
   document.adoption[inputName].style.border = "2px solid red";
   document.adoption[inputName].style.backgroundColor = "yellow";
   errorsArray.length === 0 ? null : document.adoption[errorsArray[0]].focus();
-}; // Manejador de mensajes de alerta
+};
+
+// Manejador de mensajes de alerta
 
 var alertHandler = function alertHandler(string) {
   var trigger =
     arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   alertMessage = alertMessage.concat("".concat(string, "\n"));
   trigger !== false ? alert(alertMessage) : null;
-}; // Validación de los campos requeridos al presionar submit
+};
+
+// Validación de los campos requeridos al presionar submit
 
 var validationHandler = function validationHandler() {
   alertMessage = ""; // Reseteo de los mensajes de alerta
-
   errorsArray = []; // Reseteo de los input con errores
+
   // Validación de cada campo
 
   event.preventDefault();
@@ -136,7 +142,9 @@ var validationHandler = function validationHandler() {
   ) {
     alertHandler("The email you entered is invalid\n");
     errorStyling("email");
-  } // Aquí valido los radiobutton con el name children, aunque no sean requeridos en el formulario
+  }
+
+  // Aquí valido los radiobutton con el name children, aunque no sean requeridos en el formulario
 
   if (document.adoption.children.value === "") {
     unfilledFields.push("Children");
@@ -160,7 +168,9 @@ var validationHandler = function validationHandler() {
         errorStyling("country");
       }
     }
-  } // Generación del string de alerta para aquellos campos incompletos
+  }
+
+  // Generación del string de alerta para aquellos campos incompletos
 
   if (unfilledFields.length > 0) {
     unfilledFieldsString = unfilledFields
@@ -176,7 +186,9 @@ var validationHandler = function validationHandler() {
   alertMessage === ""
     ? alertHandler("Form sent succesfully!", true)
     : alertHandler("", true);
-}; // Validación de inputs en tiempo real
+};
+
+// Validación de inputs en tiempo real
 
 var letterInputHandler = function letterInputHandler() {
   if (!/[a-z]/i.test(event.key)) {
@@ -212,7 +224,9 @@ var writingInputHandler = function writingInputHandler() {
   if (document.adoption.writing.value.length === 300) {
     event.preventDefault();
   }
-}; // Validación de pastes
+};
+
+// Validación de pastes
 
 var namePasteHandler = function namePasteHandler() {
   if (
