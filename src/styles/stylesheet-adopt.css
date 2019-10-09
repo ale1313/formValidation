@@ -1,0 +1,39 @@
+@import url(stylesheet-general.css);
+
+form#adoption {
+  padding: 2vw;
+  font: 1.5vw "Bitter";
+  background: #cd5c5c padding-box;
+  outline: 0.7vw double #0000ff;
+  outline-offset: -0.7vw;
+}
+
+div#radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form input.radio {
+  margin-right: 1vw;
+}
+
+form input#country-list {
+  text-align: center;
+}
+
+input#submit-adoption {
+  font: 2vw "Quicksand";
+  background-color: #ff0000;
+  box-shadow: 5px 5px 4px #000000;
+  float: none;
+  position: relative;
+  left: 33%;
+  background-color: #4169e1;
+}
+
+input#submit-adoption:hover {
+  font-size: 2.2vw;
+  color: #ffff00;
+  cursor: url(../media/cursors/cursor-url.cur), auto;
+}
